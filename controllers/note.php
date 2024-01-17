@@ -4,17 +4,15 @@ $db = new Database($config['database']);
 
 $heading = 'My Note';
 
-$note = $db->query('SELECT * FROM notes Where id = :id', ['id' => $_GET['id'],])->fetch();
+$note = $db->query('SELECT * FROM notes Where id = :id', ['id' => $_GET['id'],])->findOrFail();
 
-if (!$note) {
-  abort(Response::NOT_FOUND);
-}
 
 // Current User Hard Coded. Needs changing to session
 $currentUserId = 1;
 
-if ($note['user_id'] != $currentUserId) {
-  abort(Response::FORBIDDEN);
-}
+
+// auth function to check if current user owns the note
+authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
+
 
 require 'views/note.view.php';
