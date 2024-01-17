@@ -30,6 +30,6 @@ function routeToController($uri, $routes)
 function abort($statusCode = 404)
 {
   http_response_code($statusCode);
-  require('views/404.php');
+  abort();
   die();
 }
