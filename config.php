@@ -2,8 +2,8 @@
 return [
   'database' => [
     'host' => 'localhost',
-    'port' => 80,
-    'dbname' => '',
-    'charset' => 'utf8m4',
+    'port' => 3306,
+    'dbname' => 'noteit',
+    'charset' => 'utf8',
   ]
 ];
