@@ -1,20 +1,11 @@
 <?php
 // Get the requested URL
 $request_uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
+$routes = require('routes.php');
 
 
 $base_path = '/noteit';
 $uri = str_replace($base_path, '', $request_uri);
-
-$routes = [
-  '/' => 'controllers/index.php',
-  '/about' => 'controllers/about.php',
-  '/contact' => 'controllers/contact.php',
-  '/notes' => 'controllers/notes.php',
-  '/note' => 'controllers/note.php',
-
-];
 
 routeToController($uri, $routes);
 

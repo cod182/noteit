@@ -8,9 +8,12 @@
     <a href="/noteit/notes" class='hover:underline'>Go Back</a>
   </div>
   <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 ">
-    <div class="mx-auto bg-yellow-200 p-4 rounded-md shadow-md max-w-md min-w-[60%] min-h-[150px] mx-auto">
-      <p class="text-lg font-semibold mb-2">
-        <?php echo $note['post'] ?>
+    <div class="overflow-scroll aspect-square mx-auto bg-yellow-200 p-4 rounded-md shadow-md max-w-md min-w-[60%] min-h-[150px] mx-auto">
+      <p class="text-xl sm:text-lg text-gray-600 font-semibold mb-2">
+        <?php echo htmlspecialchars($note['title']) ?>
+      </p>
+      <p class="text-lg sm:text-md text-gray-600 font-normal mb-2">
+        <?php echo htmlspecialchars($note['post']) ?>
       </p>
     </div>
   </div>
