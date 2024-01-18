@@ -47,10 +47,10 @@
             </div>
             <div class="w-[70%] mt-6 flex flex-col items-center justify-end gap-x-6">
               <?php
-              if (!$formValid) : ?>
+              if (isset($errors['post'])) : ?>
                 <div class="bg-gray-500/40 border-2 border-gray-800 rounded my-2 flex justify-center items-center text-sm italic w-full">
 
-                  <p class="text-red-500 font-bold">Please fill in your note!</p>
+                  <p class="text-red-500 font-bold"><?php echo $errors['post'] ?></p>
                 </div>
               <?php endif ?>
               <button type="submit" class="rounded-md bg-pink-500 w-full px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">Create Note</button>
