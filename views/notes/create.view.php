@@ -1,8 +1,7 @@
-<?php include 'partials/head.php' ?>
+<?php include(__DIR__ . '/../partials/head.php') ?>
+<?php include(__DIR__ . '/../partials/nav.php') ?>
+<?php include(__DIR__ . '/../partials/banner.php') ?>
 
-<?php include 'partials/nav.php' ?>
-
-<?php include 'partials/banner.php' ?>
 <main>
   <div class="w-full h-[50px] flex justify-start items-center px-4">
     <a href="/noteit/notes" class='hover:underline'>Go Back</a>
@@ -37,11 +36,11 @@
 
             <div class="flex flex-col justify-center items-center w-full sm:max-w-[70%] aspect-square h-fit bg-yellow-200 p-4 rounded-md shadow-md block border-0 py-1.5">
               <div class="h-fit w-full">
-                <input type="text" name="title" id="title" placeholder="Note Title (optional)" class="w-full py-2 px-2 text-lg placeholder:text-gray-400 font-semibold bg-yellow-200">
+                <input type="text" name="title" id="title" value="<?php echo $_POST['title'] ?? '' ?>" placeholder="Note Title (optional)" class="w-full py-2 px-2 text-lg placeholder:text-gray-400 font-semibold bg-yellow-200">
               </div>
               <hr class='border-gray-300 border-dashed' />
               <div class="mt-2 h-full w-full">
-                <textarea placeholder='What do you want to note down?' id="post" name="post" class="w-full h-full px-2 resize-none border-0 overflow-scroll bg-yellow-200 font-normal text-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                <textarea placeholder='What do you want to note down?' id="post" name="post" class="w-full h-full px-2 resize-none border-0 overflow-scroll bg-yellow-200 font-normal text-gray-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"><?php echo $_POST['post'] ?? '' ?></textarea>
               </div>
 
             </div>
@@ -64,4 +63,4 @@
 
   </div>
 </main>
-<?php include 'partials/footer.php' ?>
+<?php include(__DIR__ . '/../partials/footer.php') ?>

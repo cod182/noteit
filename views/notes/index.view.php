@@ -1,8 +1,6 @@
-<?php include 'partials/head.php' ?>
-
-<?php include 'partials/nav.php' ?>
-
-<?php include 'partials/banner.php' ?>
+<?php include(__DIR__ . '/../partials/head.php') ?>
+<?php include(__DIR__ . '/../partials/nav.php') ?>
+<?php include(__DIR__ . '/../partials/banner.php') ?>
 <main>
   <div class="mx-auto max-w-7xl px-2 py-6 sm:px-6 lg:px-8 ">
     <div class='grid md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-2 mx-auto'>
@@ -31,4 +29,4 @@
     </div>
   </div>
 </main>
-<?php include 'partials/footer.php' ?>
+<?php include(__DIR__ . '/../partials/footer.php') ?>

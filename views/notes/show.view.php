@@ -1,8 +1,6 @@
-<?php include 'partials/head.php' ?>
-
-<?php include 'partials/nav.php' ?>
-
-<?php include 'partials/banner.php' ?>
+<?php include(__DIR__ . '/../partials/head.php') ?>
+<?php include(__DIR__ . '/../partials/nav.php') ?>
+<?php include(__DIR__ . '/../partials/banner.php') ?>
 <main>
   <div class="w-full h-[50px] flex justify-start items-center px-4">
     <a href="/noteit/notes" class='hover:underline'>Go Back</a>
@@ -18,4 +16,4 @@
     </div>
   </div>
 </main>
-<?php include 'partials/footer.php' ?>
+<?php include(__DIR__ . '/../partials/footer.php') ?>
