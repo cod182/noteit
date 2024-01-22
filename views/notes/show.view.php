@@ -35,7 +35,8 @@
 
         <!-- Delete Button -->
         <form method='POST' action='/note'>
-          <input type="hidden" name='id' value='<?php echo $note['id'] ?>'>
+          <input type="hidden" name="_method" value='DELETE'>
+          <input type="hidden" name=' id' value='<?php echo $note['id'] ?>'>
           <button type='submit' class='flex flex-col justify-center items-center aspect-square h-[30px] text-xl rounded bg-gray-300/0 border-2 text-gray-400 border-gray-400/60 focus:bg-red-600 hover:text-gray-800 hover:bg-red-300 hover:border-gray-800 transition-all duration-200 ease-in'>X</button>
         </form>
       </div>
