@@ -1,9 +1,9 @@
-<?php include(__DIR__ . '/../partials/head.php') ?>
-<?php include(__DIR__ . '/../partials/nav.php') ?>
-<?php include(__DIR__ . '/../partials/banner.php') ?>
+<?php require base_path('views/partials/head.php'); ?>
+<?php require base_path('views/partials/nav.php'); ?>
+<?php require base_path('views/partials/banner.php'); ?>
 <main>
   <div class="w-full h-[50px] flex justify-start items-center px-4">
-    <a href="/noteit/notes" class='hover:underline'>Go Back</a>
+    <a href="/notes" class='hover:underline'>Go Back</a>
   </div>
   <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 ">
     <div class="overflow-scroll aspect-square mx-auto bg-yellow-200 p-4 rounded-md shadow-md max-w-md min-w-[60%] min-h-[150px] mx-auto">

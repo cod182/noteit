@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /noteit
+    RewriteBase /
 
     # Redirect all requests to the router (index.php)
     RewriteCond %{REQUEST_FILENAME} !-f

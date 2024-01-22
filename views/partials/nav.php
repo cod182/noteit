@@ -7,10 +7,10 @@
         </div>
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4">
-            <a href="/noteit/" class="<?php echo $val = urlIs('/noteit/') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a>
-            <a href="/noteit/about" class="<?php echo $val = urlIs('/noteit/about') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">About</a>
-            <a href="/noteit/notes" class="<?php echo $val = urlIs('/noteit/notes') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Notes</a>
-            <a href="/noteit/contact" class="<?php echo $val = urlIs('/noteit/contact') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Contact</a>
+            <a href="/" class="<?php echo $val = urlIs('/') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a>
+            <a href="/about" class="<?php echo $val = urlIs('/about') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">About</a>
+            <a href="/notes" class="<?php echo $val = urlIs('/notes') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Notes</a>
+            <a href="/contact" class="<?php echo $val = urlIs('/contact') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Contact</a>
           </div>
         </div>
       </div>
@@ -65,10 +65,10 @@
   <!-- Mobile menu, show/hide based on menu state. -->
   <div class="md:hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-      <a href="/noteit/" class="<?php echo $val = urlIs('/noteit/') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a>
-      <a href="/noteit/about" class="<?php echo $val = urlIs('/noteit/about') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">About</a>
-      <a href="/noteit/notes" class="<?php echo $val = urlIs('/noteit/notes') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Notes</a>
-      <a href="/noteit/contact" class="<?php echo $val = urlIs('/noteit/contact') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Contact</a>
+      <a href="/" class="<?php echo $val = urlIs('/') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a>
+      <a href="/about" class="<?php echo $val = urlIs('/about') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">About</a>
+      <a href="/notes" class="<?php echo $val = urlIs('/notes') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Notes</a>
+      <a href="/contact" class="<?php echo $val = urlIs('/contact') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Contact</a>
     </div>
   </div>
   <!-- <div class="border-t border-gray-700 pb-3 pt-4">

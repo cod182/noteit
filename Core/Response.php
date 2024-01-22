@@ -1,4 +1,6 @@
 <?php
+namespace Core;
+
 class Response
 {
   const BAS_REQUEST = 400;

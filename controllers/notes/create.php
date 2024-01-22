@@ -1,10 +1,13 @@
 <?php
-// Db Connection
-$config = require("config.php");
-$db = new Database($config['database']);
-require("Validator.php");
 
-$heading = 'Create a Note!';
+use Core\Database;
+use Core\Validator;
+
+
+// Db Connection
+$config = require(base_path("config.php"));
+$db = new Database($config['database']);
+
 
 $errors = [];
 
@@ -24,4 +27,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-require('views/notes/create.view.php');
+view('notes/create.view.php', ['heading' => 'Create a Note!', 'errors' => $errors, 'userId' => $userId]);
