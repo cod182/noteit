@@ -3,6 +3,8 @@
 namespace Core;
 
 use PDO;
+
+
 // Connect to DB and execute query
 class Database
 {
@@ -45,7 +47,7 @@ class Database
   {
     $result = $this->find();
     if (!$result) {
-      abort(Response::NOT_FOUND);
+      Router::abort(Response::NOT_FOUND);
     }
     return $result;
   }

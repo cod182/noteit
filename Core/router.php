@@ -52,7 +52,7 @@ class Router
     $this->abort();
   }
 
-  protected function abort($statusCode = 404)
+  static function abort($statusCode = 404)
   {
     http_response_code($statusCode);
     view('error.view.php', ['statusCode' => $statusCode]);

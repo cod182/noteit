@@ -1,7 +1,7 @@
 <?php
 
 use Core\Response;
-
+use Core\Router;
 
 function urlIs($value)
 {
@@ -12,7 +12,7 @@ function urlIs($value)
 function authorize($condition, $response = Response::FORBIDDEN)
 {
   if (!$condition) {
-    abort($response);
+    Router::abort($response);
   }
 }
 

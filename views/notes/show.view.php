@@ -32,13 +32,19 @@
         <p class="text-xl sm:text-lg text-gray-600 font-semibold mb-2">
           <?php echo htmlspecialchars($note['title']) ?>
         </p>
+        <div class='flex flex-row justify-spec items-center'>
+          <!-- Edit Button -->
+          <a href="/note/edit?id=<?php echo $note['id'] ?>" class='p-1 mx-1 flex flex-col justify-center items-center aspect-square h-[30px] text-xl rounded bg-gray-300/0 border-2 text-gray-400 border-gray-400/60 focus:bg-blue-600 hover:text-gray-800 hover:bg-blue-300 hover:border-gray-800 transition-all duration-200 ease-in''>
+<svg class="feather feather-edit" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </a>
 
-        <!-- Delete Button -->
-        <form method='POST' action='/note'>
-          <input type="hidden" name="_method" value='DELETE'>
-          <input type="hidden" name=' id' value='<?php echo $note['id'] ?>'>
-          <button type='submit' class='flex flex-col justify-center items-center aspect-square h-[30px] text-xl rounded bg-gray-300/0 border-2 text-gray-400 border-gray-400/60 focus:bg-red-600 hover:text-gray-800 hover:bg-red-300 hover:border-gray-800 transition-all duration-200 ease-in'>X</button>
-        </form>
+          <!-- Delete Button -->
+          <form method=' POST' action='/note'>
+            <input type="hidden" name="_method" value='DELETE'>
+            <input type="hidden" name=' id' value='<?php echo $note['id'] ?>'>
+            <button type='submit' class='mx-1 flex flex-col justify-center items-center aspect-square h-[30px] text-xl rounded bg-gray-300/0 border-2 text-gray-400 border-gray-400/60 focus:bg-red-600 hover:text-gray-800 hover:bg-red-300 hover:border-gray-800 transition-all duration-200 ease-in'>X</button>
+            </form>
+        </div>
       </div>
 
       <!-- Post Body -->

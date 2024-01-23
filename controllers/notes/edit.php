@@ -16,4 +16,4 @@ $note = $db->query('SELECT * FROM notes Where id = :id', ['id' => $_GET['id'],])
 authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
 
 
-view('notes/show.view.php', ['heading' => 'Your Note', 'note' => $note]);
+view('notes/edit.view.php', ['heading' => 'Edit your Note!', 'errors' => [], 'userId' => $currentUserId, 'note' => $note]);
