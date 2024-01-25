@@ -19,7 +19,7 @@ if (!Validator::string($password)) {
 }
 
 if (!empty($errors)) {
-  return view('sessions/create.view.php', ['errors' => $errors]);
+  return view('session/create.view.php', ['errors' => $errors]);
 }
 
 // Match the credentials from database
@@ -30,8 +30,9 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', ['email' => $emai
 
 // If user found
 if ($user) {
+
   // Have user, but need to check password provided
-  if (password_verify($user['password'], $password)) { // using php method, user password from DB, user password from form
+  if (password_verify($password, $user['password'])) { // using php method, user password from DB, user password from form
     // True
     // Login user if credentials match
     login($user);
@@ -44,4 +45,4 @@ if ($user) {
 // Password validation failed / no user found
 $errors['general'] = 'No account found for email/password. Please try again';
 
-return view('sessions/create.view.php', ['errors' => $errors]);
+return view('session/create.view.php', ['errors' => $errors]);

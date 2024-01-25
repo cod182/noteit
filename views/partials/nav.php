@@ -27,7 +27,7 @@
 
           <!-- Profile dropdown -->
           <?php if ($_SESSION['user'] ?? false) : ?>
-            <div class="relative ml-3">
+            <div class="relative ml-3 flex flex-row items-center justify-space gap-x-2">
               <div>
                 <button type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="absolute -inset-1.5"></span>
@@ -38,17 +38,15 @@
               </div>
 
 
-              <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-              </div>
+              <form method='POST' action='/session'>
+                <input type="hidden" name="_method" value='DELETE'>
+                <button type='submit' class='block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white'>Logout</button>
+              </form>
             </div>
           <?php else : ?>
+            <!-- Not logged in -->
             <div class="flex flex-row items-center justify-space gap-x-2 ">
               <a href="/register" class="<?php echo $val = urlIs('/register') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Register</a>
-
               <a href="/login" class="<?php echo $val = urlIs('/login') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Login</a>
             </div>
           <?php endif ?>

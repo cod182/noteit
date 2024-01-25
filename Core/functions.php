@@ -33,3 +33,25 @@ function login($user)
   // Set session (log in)
   $_SESSION['user'] = ['email' => $user['email']];
 }
+
+function logout()
+{
+  // clear session files
+  $_SESSION = [];
+
+  // clear server session
+  session_destroy();
+
+
+  // Remove cookie in browser
+  // Get the current local cookie params
+  $params = session_get_cookie_params();
+
+  // update the cookie to exire 1 hours ago
+  setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['http']);
+  // cookie: NAME, VALUE, Expiry Time, Path to cookie, Domain, 
+
+  // Redirect to home
+  header('Location:/');
+  exit();
+}
