@@ -25,7 +25,7 @@ if (!Validator::string($_POST['post'], 1, 2000)) {
 
 // if no errors, update record in db table
 if (!empty($errors)) {
-  return view('notes/edit.view.php', ['heading' => 'Update your Note!', 'errors' => $errors, 'userId' => $userId]);
+  return view('notes/edit.view.php', ['heading' => 'Update your Note!', 'errors' => $errors, 'userId' => $currentUserId, 'note' => $note]);
 }
 
 if (empty($errors)) {
