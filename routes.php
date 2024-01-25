@@ -26,3 +26,6 @@ $router->post('/notes', 'controllers/notes/store.php')->only('authenticated');
 $router->get('/register', 'controllers/registration/create.php')->only('guest');
 
 $router->post('/register', 'controllers/registration/store.php')->only('guest');
+
+$router->get('/login', 'controllers/sessions/create.php')->only('guest');
+$router->post('/login', 'controllers/sessions/store.php')->only('guest');

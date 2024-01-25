@@ -46,7 +46,11 @@
               </div>
             </div>
           <?php else : ?>
-            <a href="/register" class='text-white bg-blue-600 rounded px-4 py-2 hover:bg-blue-800'>Register</a>
+            <div class="flex flex-row items-center justify-space gap-x-2 ">
+              <a href="/register" class="<?php echo $val = urlIs('/register') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Register</a>
+
+              <a href="/login" class="<?php echo $val = urlIs('/login') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> block rounded-md px-3 py-2 text-base font-medium">Login</a>
+            </div>
           <?php endif ?>
         </div>
       </div>
