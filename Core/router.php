@@ -2,6 +2,10 @@
 
 namespace Core;
 
+use Core\Middleware\Authenticated;
+use Core\Middleware\Guest;
+use Core\Middleware\Middleware;
+
 class Router
 {
 
@@ -58,17 +62,11 @@ class Router
     foreach ($this->routes as $route) {
       // Checks if the URI and Method are the same
       if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-        // Apply middleware
-        // Long Method
 
-        if ($route['middleware'] === 'guest') { // If the middleware is guest
-          // True
-          if ($_SESSION['user'] ?? false) { // If the session contains user
-            // True - User in the session. User is not a guest
-            header('Location:/'); // Redirect to home
-            exit();
-          };
-        }
+        // Middleware checks
+        Middleware::resolve($route['middleware']);
+
+
         return require base_path($route['controller']);
       }
     };
