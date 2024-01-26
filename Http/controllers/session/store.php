@@ -1,48 +1,30 @@
 <?php
 
-use Core\App;
-use Core\Database;
-use Core\Validator;
+use Core\Authenticator;
+use Core\Session;
+use Http\Forms\LoginForm;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-$errors = [];
 
-// Validate form data
+// New LoginForm instance
+$form = new LoginForm;
 
-if (!Validator::email($email)) {
-  $errors['email'] = 'Please provide a valid email address';
-};
+// Check if passed validation using email & password
+if ($form->Validate($email, $password)) {
 
-if (!Validator::string($password)) {
-  $errors['password'] = 'Please provide a valid password';
-}
-
-if (!empty($errors)) {
-  return view('session/create.view.php', ['errors' => $errors]);
-}
-
-// Match the credentials from database
-// Get database
-$db = App::resolve(Database::class);
-// Find All in users where the email matches the email from post form
-$user = $db->query('SELECT * FROM users WHERE email = :email', ['email' => $email])->find();
-
-// If user found
-if ($user) {
-
-  // Have user, but need to check password provided
-  if (password_verify($password, $user['password'])) { // using php method, user password from DB, user password from form
-    // True
-    // Login user if credentials match
-    login($user);
+  if ((new Authenticator)->attempt($email, $password)) {
     // Redirect
-    header('Location: /');
-    exit();
-  };
+    redirect('/');
+  }
+  $form->error('general', 'No account found for email/password. Please try again');
+  var_dump($form->errors());
 }
 
-// Password validation failed / no user found
-$errors['general'] = 'No account found for email/password. Please try again';
+// Form Fails Validation or auth fails
 
-return view('session/create.view.php', ['errors' => $errors]);
+// Set flashed error in session to persist
+Session::flash('errors', $form->errors());
+
+// Redirect back to login to avoid form submission
+return redirect('/login');

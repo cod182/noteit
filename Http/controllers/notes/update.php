@@ -30,6 +30,5 @@ if (!empty($errors)) {
 
 if (empty($errors)) {
   $db->query('UPDATE notes SET title = :title, post = :post WHERE id = :id', ['title' => htmlspecialchars($_POST['title']), 'post' => htmlspecialchars($_POST['post']), 'id' => $_POST['id']]);
-  header('Location:/notes');
-  die();
+  redirect('/notes');
 };

@@ -28,8 +28,7 @@ if (!empty($errors)) {
 
 if (empty($errors)) {
   $db->query('INSERT INTO notes(title, post, user_id) VALUES(:title, :post, :user_id)', ['title' => htmlspecialchars($_POST['title']), 'post' => htmlspecialchars($_POST['post']), 'user_id' => $_POST['user_id']]);
-  header('Location:/notes');
-  die();
+  redirect('/notes');
 };
 
 // Validation Issue

@@ -1,25 +1,21 @@
 <?php
 
 use Core\App;
+use Core\Authenticator;
 use Core\Database;
-use Core\Validator;
+use Http\Forms\LoginForm;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-$errors = [];
 
-// Validate form data
-
-if (!Validator::email($email)) {
-  $errors['email'] = 'Please provide a valid email address';
-};
-
-if (!Validator::string($password, 7, 255)) {
-  $errors['password'] = 'Password must be at least 7 characters ';
-}
-
-if (!empty($errors)) {
-  return view('registration/create.view.php', ['errors' => $errors]);
+// New LoginForm instance
+$form = new LoginForm;
+// Check if passed validation using email & password
+if (!$form->Validate($email, $password)) {
+  // Fails Validation
+  if (!empty($errors)) {
+    return view('session/create.view.php', ['errors' => $form->errors()]); // Getting errors from form errors function getter
+  }
 }
 
 // Check if email in use
@@ -30,16 +26,15 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', ['email' => $emai
 
 // if true - redirect to login
 if ($user) {
-  header('Location: /login');
-  exit();
+  redirect('/login');
 } else {
   // False - Save to database / redirect 
   // Insert into database
   $db->query('INSERT INTO users (email, password) VALUES(:email, :password)', ['email' => $email, 'password' => password_hash($password, PASSWORD_BCRYPT)]);
 
   // Mark that user has logged in
-  login($user);
+  $auth = new Authenticator();
+  $auth->login($user);
   // Redirect
-  header('Location: /');
-  exit();
+  redirect('/');
 }

@@ -1,5 +1,7 @@
 <?php
 
+use Core\Session;
+
 session_start();
 
 const BASE_PATH = __DIR__ . '/../';
@@ -26,3 +28,6 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 // Router->method
 $router->route($uri, $method);
+
+// Removes the flashed messages from session
+Session::unflash();

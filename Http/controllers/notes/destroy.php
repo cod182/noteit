@@ -20,6 +20,4 @@ authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
 $db->query('DELETE FROM notes WHERE id=:id', ['id' => $_POST['id']]);
 
 // Redirect to notes page
-header('Location: /notes');
-// Exit
-exit();
+redirect('/notes');

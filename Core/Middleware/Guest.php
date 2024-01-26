@@ -10,8 +10,7 @@ class Guest
 
     if ($_SESSION['user'] ?? false) { // If the session contains user
       // True - User in the session. User is not a guest
-      header('Location:/'); // Redirect to home
-      exit();
+      redirect('/');
     };
   }
 }
