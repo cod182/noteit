@@ -25,6 +25,7 @@ if ($form->Validate($email, $password)) {
 
 // Set flashed error in session to persist
 Session::flash('errors', $form->errors());
+Session::flash('old', ['email' => $email]);
 
 // Redirect back to login to avoid form submission
 return redirect('/login');
