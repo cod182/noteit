@@ -1,5 +1,6 @@
 <?php
 
+use Core\Router;
 use Core\Session;
 use Core\ValidationException;
 
@@ -34,8 +35,8 @@ try {
   // Set flashed error in session to persist
   Session::flash('errors', $exception->errors);
   Session::flash('old', $exception->old);
-  // Redirect back to login to avoid form submission
-  return redirect('/login');
+  // Redirect back to previous url
+  return redirect($router->previousUrl());
 }
 
 // Removes the flashed messages from session

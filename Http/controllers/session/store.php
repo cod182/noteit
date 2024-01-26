@@ -5,14 +5,22 @@ use Http\Forms\LoginForm;
 
 
 // Check if passed validation using email & password
-$form = LoginForm::validate($attributes = ['email' => $_POST['email'], 'password' => $_POST['password']]);
+$form = LoginForm::validate(
+  $attributes = ['email' => $_POST['email'], 'password' => $_POST['password']]
+);
 
-if ((new Authenticator)->attempt($attributes['email'], $attributes['password'])) {
-  // Redirect
-  redirect('/');
+// No exception
+$signedIn = (new Authenticator)->attempt(
+  $attributes['email'],
+  $attributes['password']
+);
+
+if (!$signedIn) {
+  // Form Fails auth fails
+  $form->error(
+    'general',
+    'No account found for email/password. Please try again'
+  )->throw();;
 }
 
-$form->error('general', 'No account found for email/password. Please try again');
-
-
-// Form Fails Validation or auth fails
+redirect('/');
