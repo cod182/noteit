@@ -1,0 +1,16 @@
+{
+  "name": "codie/noteit",
+  "authors": [
+    {
+      "name": "Codie Stephens-Evans",
+      "email": "hello@codie.uk"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/",
+      "Http\\": "Http/"
+    }
+  }
+}
