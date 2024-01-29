@@ -12,9 +12,6 @@ $db = App::resolve(Database::class);
 
 $errors = [];
 
-// Static User Id
-$userId = 1;
-
 // Checking for 
 
 // Calling static class method
@@ -23,7 +20,7 @@ if (!Validator::string($_POST['post'], 1, 2000)) {
 };
 
 if (!empty($errors)) {
-  return view('notes/create.view.php', ['heading' => 'Create a Note!', 'errors' => $errors, 'userId' => $userId]);
+  return view('notes/create.view.php', ['heading' => 'Create a Note!', 'errors' => $errors, 'userId' => $_SESSION['user']['id']]);
 }
 
 if (empty($errors)) {

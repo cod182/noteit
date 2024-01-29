@@ -8,7 +8,7 @@ class Authenticator
   public function login($user)
   {
     // Set session (log in)
-    $_SESSION['user'] = ['email' => $user['email']];
+    $_SESSION['user'] = ['email' => $user['email'], 'id' => $user['id']];
   }
 
   public function logout()

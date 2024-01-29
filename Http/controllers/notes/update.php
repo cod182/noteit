@@ -8,13 +8,11 @@ use Core\Validator;
 
 $db = App::resolve(Database::class);
 
-// Current User Hard Coded. Needs changing to session
-$currentUserId = 1;
 
 // Find note
 $note = $db->query('SELECT * FROM notes Where id = :id', ['id' => $_POST['id'],])->findOrFail();
 // Authorise check
-authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
+authorize($note['user_id'] === $_SESSION['user']['id'], Response::FORBIDDEN);
 
 // Validate form
 $errors = [];
@@ -25,7 +23,7 @@ if (!Validator::string($_POST['post'], 1, 2000)) {
 
 // if no errors, update record in db table
 if (!empty($errors)) {
-  return view('notes/edit.view.php', ['heading' => 'Update your Note!', 'errors' => $errors, 'userId' => $currentUserId, 'note' => $note]);
+  return view('notes/edit.view.php', ['heading' => 'Update your Note!', 'errors' => $errors, 'userId' => $_SESSION['user']['id'], 'note' => $note]);
 }
 
 if (empty($errors)) {
